@@ -1,0 +1,54 @@
+#slide-out{
+    background-color: #fb5404;
+}
+.background{
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.user-view {
+  border-bottom: 1px solid #fff;
+}
+.user-view h5{
+  padding-left: 45px;
+  padding-bottom: 15px; 
+  color:#fff;
+}
+#slide-out .sidenav-datos{
+  position: relative;
+}
+#slide-out .sidenav-datos span{
+  position: absolute;
+  top: 18px;
+  left: 87px;
+}
+#slide-out a, #slide-out span , #slide-out i{
+  color:#fff;
+}
+.collapsible{
+  color: #fff;
+}
+.collapsible .collapsible-header{
+  padding-left: 34px;
+}
+.collapsible .collapsible-body{
+  background-color: #fb5404;
+  padding-left: 60px;
+}
+.collapsible .collapsible-body a{
+  color: #fff;
+}
+.sidenav .user-view{
+  padding: 12px 32px 0 !important;
+}
+.top-nav{
+  height: 55px;
+  background-color: #fb5404;
+}
+.top-nav a{
+  color: #fff;
+  
+}
+.top-nav a i{
+  margin-top: 13px;
+  margin-left: 10px;
+}
