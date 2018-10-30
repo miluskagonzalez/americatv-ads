@@ -10,5 +10,9 @@ main {
 }
 
 .pl {
-padding-left: 10px;
+  padding-left: 10px;
+}
+
+.pt-2 {
+  padding-top: 5px;
 }
