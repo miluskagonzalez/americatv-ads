@@ -1,10 +1,11 @@
 #slide-out{
-  background-color: #fb5404;
+  background-color: #F5F4F4;
 }
 
 .background{
-margin-left: 20px;
-margin-top: 20px;
+padding-left: 20px;
+padding-top: 20px;
+background-color: #fb5404;
 }
 
 .user-view {
@@ -28,11 +29,11 @@ left: 87px;
 }
 
 #slide-out a, #slide-out span , #slide-out i{
-color:#fff;
+color:#533869;
 }
 
 .collapsible{
-color: #fff;
+color: #533869;
 }
 
 .collapsible .collapsible-header{
@@ -40,12 +41,12 @@ padding-left: 34px;
 }
 
 .collapsible .collapsible-body{
-background-color: #fb5404;
+background-color: #F5F4F4;
 padding-left: 60px;
 }
 
 .collapsible .collapsible-body a{
-color: #fff;
+color: #fb5404 !important;
 }
 
 .sidenav .user-view{
