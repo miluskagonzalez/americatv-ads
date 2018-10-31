@@ -37,6 +37,8 @@ getBrands().then(brand => {
   arr.forEach((e, i) => {
     const optionBrand = document.createElement('option');
     optionBrand.textContent = arr[i].product;
+    optionBrand.id = arr[i].charge;
+    console.log(arr[i].charge);
     optionBrand.value = arr[i].product;
     optionBrand.id = e.charge;
     brands.appendChild(optionBrand);

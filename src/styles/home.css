@@ -220,6 +220,10 @@ background-color: #ada7a7;
   font-weight: bold;
 }
 
+body {
+  font-family: 'Lato', sans-serif;
+}
+
 .display-none {
   display: none;
 }
