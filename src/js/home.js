@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const ad = {
+  currentId: '',
   product: '', //marca
   priceProduct: 0,
   show: '', //name
@@ -44,6 +45,14 @@ getBrands().then(brand => {
     brands.appendChild(optionBrand);
   });
 });
+
+const handleReservation = ({ intervals, currentId, ...reservation }) => saveReservation(reservation)
+  .then(() => updateShowInfo(currentId, ad.day, ad.interval))
+  .then(() => {
+    ad.recargo = 0;
+    ad.interval = '';
+    M.toast({ html: '¡Se generó la reserva!' })
+  })
 
 const printModal = () => {
   document.getElementById('modal1').innerHTML =
@@ -75,9 +84,9 @@ const printModal = () => {
    <p>Total: ${parseInt(ad.showPrice) + parseInt(ad.priceProduct) + parseInt(ad.recargo)}</p>
    </div>
 </div>
-<div class="modal-footer">
+<div onClick="handleReservation(ad)" class="modal-footer">
    ${ad.interval.length
-      ? '<button id="btnSaveReservation" class="btn waves-effect waves-light" type="submit" name="action">Agregar reserva<i class="material-icons right">send</i></button>'
+      ? '<button id="btnSaveReservation" class="btn waves-effect waves-light modal-close" type="submit" name="action">Agregar reserva<i class="material-icons right">send</i></button>'
       : ''}
 </div>`
 }
@@ -98,19 +107,15 @@ schedule.addEventListener('click', (event) => {
       .then(({ fee, name, schedule }) => {
         const { day, intervals } = schedule.find(({ day }) => day === event.target.dataset.date)
 
+        ad.currentId = event.target.dataset.name;
         ad.show = name;
         ad.showPrice = fee
         ad.day = day
         ad.intervals = intervals
-
         printModal();
       })
   }
 });
-
-const waitToSaveData = () => document
-  .getElementById('btnSaveReservation')
-  .saveReservation(ad)
 
 const selectInterval = () => {
   const interval = document.getElementById('select').value;
@@ -133,5 +138,4 @@ const selectInterval = () => {
       break;
   }
   printModal();
-  waitToSaveData();
 };
