@@ -1,1 +1,67 @@
-<!-- Página principal -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="home.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="container">
+
+        <div data-index-number="12314" data-parent="cars">
+            Electricars
+        </div>
+
+        <div data-index-number="9876" data-parent="trains">
+            Train
+        </div>
+    </div>
+
+    <!-- Modal Trigger -->
+    <button class="waves-effect waves-light btn modal-trigger" data-target="modal1">Modal</button>
+
+    <!-- Modal Structure -->
+
+    <div id="modal1" class="modal">
+        <div class="navbar-fixed">
+            <nav class="orange">
+                <div class="nav-wrapper container">
+                    <h4 class="center-align modal-content">Datos de reserva</h4>
+                </div>
+            </nav>
+        </div>
+        
+
+        <div class="modal-content">
+            <p>`${Cliente}`</p>
+            <p>Marca</p>
+            <p>Programa</p>
+            <p>Fecha</p>
+            <p>Hora</p>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Agregar reserva
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="../js/home.js">     </script>
+</body>
+
+</html>
