@@ -10,4 +10,5 @@ signupForm.addEventListener('submit', ({ target: { company, name, position, emai
       name: name.value,
       position: position.value, 
     }))
+    .then(() => window.location = './home.html')
 })
