@@ -1,4 +1,9 @@
-#slide-out{
+  body {
+    font-family: 'Lato', sans-serif;
+  }
+
+
+  #slide-out{
     background-color: #fb5404;
   }
   
@@ -7,6 +12,26 @@
   margin-top: 20px;
   }
   
+  .home-background {
+    background-image: url(http://www.comercial.americatv.com.pe/images/fondo2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+  }
+
+  .titulo{
+    color: #fff;
+    text-align: left;
+  }
+  .titulo::after{
+    content: "";
+    width: 40px;
+    height: 4px;
+    background-color: #fb5404;
+    display: block;
+  }
+
   .user-view {
   border-bottom: 1px solid #fff;
   }
@@ -67,150 +92,6 @@
   margin-left: 10px;
   }
   
-  .cronograma{
-  font-size: 11px;
-  font-weight: 600;
-  }
-  
-  .fecha{
-  font-size: 12px;
-  font-weight: bold;
-  }
-  
-  .cronograma .col div{
-  border:1px solid #eaeaea;
-  }
-  
-  .cronograma .l1{
-      padding: 0rem !important;
-  }
-  
-  .cronograma .lunes div{
-  height: 50.3px;
-  padding-top: 15px;
-  text-align: center;
-  margin: 2px 2px; 
-  border-radius: 4px;
-  }
-  
-  .cronograma .lunes .fecha{
-  height: 30px;
-  padding-top: 5px;
-  }
-  
-  .cronograma .martes div{
-  height: 50.3px;
-  padding-top: 15px;
-  text-align: center;
-  margin: 2px 2px; 
-  border-radius: 4px;
-  }
-  
-  .cronograma .martes .fecha{
-  height: 30px;
-  padding-top: 5px;
-  }
-  .cronograma .miercoles div{
-  height: 45.7px;
-  padding-top: 0px;
-  text-align: center;
-  margin: 2px 2px; 
-  border-radius: 4px;
-  }
-  
-  .cronograma .miercoles .fecha{
-  height: 30px;
-  padding-top: 5px;
-  }
-  
-  .cronograma .jueves div{
-  height: 45.7px;
-  padding-top: 0px;
-  text-align: center;
-  margin: 2px 2px; 
-  border-radius: 4px;
-  }
-  
-  .cronograma .jueves .fecha{
-  height: 30px;
-  padding-top: 5px;
-  }
-  
-  .cronograma .viernes div{
-  height: 45.7px;
-  padding-top: 0px;
-  text-align: center;
-  margin: 2px 2px; 
-  border-radius: 4px;
-  }
-  
-  .cronograma .viernes .fecha{
-  height: 30px;
-  padding-top: 5px;
-  }
-  
-  .cronograma .sabado div{
-  height: 54.7px;
-  padding-top: 5px;
-  text-align: center;
-  margin: 2px 2px; 
-  border-radius: 4px;
-  }
-  
-  .cronograma .sabado .fecha{
-  height: 30px;
-  padding-top: 5px;
-  }
-  
-  .cronograma .domingo div{
-  height: 76.4px;
-  padding-top: 20px;
-  text-align: center;
-  margin: 2px 2px; 
-  border-radius: 4px;
-  }
-  
-  .cronograma .domingo .fecha{
-  height: 30px;
-  padding-top: 5px;
-  }
-  
-  .cronograma  div{
-  position: relative;
-  }
-  
-  .cronograma  div a{
-  width: 15px !important;
-  height: 15px !important;
-  line-height: 15px !important;
-  position: absolute;
-  bottom: 3px;
-  right: 3px;
-  background-color: #fff !important;
-  }
-  
-  .cronograma  div a i{
-  font-size: 1rem !important;
-  line-height: 17px !important;
-  color: #333 !important;
-  }
-  
-  .sinRecargo{
-  background-color: #51c9d2;
-  }
-  
-  .cincoPorciento{
-  background-color: #ffd700;
-  }
-  
-  .quincePorciento{
-  background-color: #602e9e;
-  }
-  
-  .deshabilitado{
-  background-color: #ada7a7;
-  }
-  
   .top-nav-modal{
     padding: 16px;
     color: #fff;
@@ -218,10 +99,6 @@
     height: 55px;
     background-color: #fb5404;
     font-weight: bold;
-  }
-  
-  body {
-    font-family: 'Lato', sans-serif;
   }
   
   .display-none {

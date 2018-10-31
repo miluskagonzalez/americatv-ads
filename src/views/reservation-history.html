@@ -2,74 +2,84 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>América TV</title>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!--Font Google-->
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- CSS Optional -->
-    <link rel="stylesheet" href="../styles/reservation-history.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>América TV</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!--Font Google-->
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- CSS Optional -->
+  <link rel="stylesheet" href="../styles/reservation-history.css">
 </head>
 
 <body>
-    <div class="top-nav">
-        <a href="#" data-target="slide-out" class="sidenav-trigger btn-menu"><i class="material-icons">menu</i></a>
+  <div class="top-nav">
+    <a href="#" data-target="slide-out" class="sidenav-trigger btn-menu"><i class="material-icons">menu</i></a>
+  </div>
+  <section>
+    <ul id="slide-out" class="sidenav">
+      <li>
+        <div class="user-view">
+          <div class="background">
+            <img src="http://www.comercial.americatv.com.pe/images/logo_header.png">
+          </div>
+          <h5>AMÉRICA</h5>
+        </div>
+      </li>
+      <li class="sidenav-datos">
+        <a href="#!"><i class="material-icons">store</i>LIQUID</a>
+        <span>Teresa Lara</span>
+      </li>
+      <!-- <li><div class="divider"></div></li> -->
+      <li><a class="subheader"><i class="material-icons">home</i> Panel de programación</a>
+      </li>
+      <li>
+        <ul class="collapsible">
+          <li>
+            <div class="collapsible-header">Tus Reservas</div>
+            <div class="collapsible-body"><a href="./home.html">Nueva Reserva</a></div>
+            <div class="collapsible-body"> <a href="./reservation-history.html">Historial de Reserva</a></div>
+          </li>
+          <li>
+            <div class="collapsible-header">Tus productos</div>
+            <div class="collapsible-body"><a href="">Agregar Nuevo Producto</a></div>
+            <div class="collapsible-body"><a href="">Historial de Productos</a></div>
+          </li>
+          <li>
+            <div class="collapsible-header">Configuración</div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    </li>
+    </ul>
+  </section>
+  <section class="container-fluid center-align section home-background">
+    <div class="container">
+      <h4 class="titulo">Historial de reservas</h4>
     </div>
-    <section>
-        <ul id="slide-out" class="sidenav">
-            <li>
-                <div class="user-view">
-                    <div class="background">
-                        <img src="http://www.comercial.americatv.com.pe/images/logo_header.png">
-                    </div>
-                    <h5>AMÉRICA</h5>
-                </div>
-            </li>
-            <li class="sidenav-datos">
-                <a href="#!"><i class="material-icons">store</i>LIQUID</a>
-                <span>Teresa Lara</span>
-            </li>
-            <!-- <li><div class="divider"></div></li> -->
-            <li><a class="subheader"><i class="material-icons">home</i> Panel de programación</a>
-            </li>
-            <li>
-                <ul class="collapsible">
-                    <li>
-                        <div class="collapsible-header">Tus Reservas</div>
-                        <div class="collapsible-body"><a href="./home.html">Nueva Reserva</a></div>
-                        <div class="collapsible-body"> <a href="./reservation-history.html">Historial de Reserva</a></div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header">Tus productos</div>
-                        <div class="collapsible-body"><a href="">Agregar Nuevo Producto</a></div>
-                        <div class="collapsible-body"><a href="">Historial de Productos</a></div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header">Configuración</div>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        </li>
-        </ul>
-    </section>
+    <div class="row container section">
+      <div class="input-field col s12 m4 l4">
+        <select id="" class="browser-default">
+          <option value="" disabled selected>Selecciona tu marca</option>
+        </select>
+      </div>
+    </div>
+  </section>
 
-        
-        <!--Firebase-->
-        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src="../js/firebase.js"></script>
-        <script src="../js/materialize.js"></script>
-        <script src="../js/reservation-history.js"></script>
+  <!--Firebase-->
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="../js/firebase.js"></script>
+  <script src="../js/materialize.js"></script>
+  <script src="../js/reservation-history.js"></script>
 </body>
 
 </html>
