@@ -65,8 +65,10 @@
   margin-left: 10px;
 }
 .cronograma{
-  font-size: 10px;
+  font-size: 11px;
+  font-weight: 600;
 }
+
 .fecha{
   font-size: 12px;
   font-weight: bold;
@@ -183,3 +185,27 @@
 .deshabilitado{
   background-color: #ada7a7;
 }
+
+select {
+  margin-left: 40px;
+}
+
+@media (max-width: 600px){
+  .cronograma{
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  select {
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 900px){
+  .cronograma{
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+}
+
