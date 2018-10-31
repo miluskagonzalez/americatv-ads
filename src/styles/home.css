@@ -1,45 +1,57 @@
 #slide-out{
     background-color: #fb5404;
 }
+
 .background{
   margin-left: 20px;
   margin-top: 20px;
 }
+
 .user-view {
   border-bottom: 1px solid #fff;
 }
+
 .user-view h5{
   padding-left: 45px;
   padding-bottom: 15px; 
   color:#fff;
 }
+
 #slide-out .sidenav-datos{
   position: relative;
 }
+
 #slide-out .sidenav-datos span{
   position: absolute;
   top: 18px;
   left: 87px;
 }
+
 #slide-out a, #slide-out span , #slide-out i{
   color:#fff;
 }
+
 .collapsible{
   color: #fff;
 }
+
 .collapsible .collapsible-header{
   padding-left: 34px;
 }
+
 .collapsible .collapsible-body{
   background-color: #fb5404;
   padding-left: 60px;
 }
+
 .collapsible .collapsible-body a{
   color: #fff;
 }
+
 .sidenav .user-view{
   padding: 12px 32px 0 !important;
 }
+
 .top-nav{
   height: 55px;
   background-color: #fb5404;
@@ -137,6 +149,7 @@
   height: 30px;
   padding-top: 5px;
 }
+
 .cronograma .domingo div{
   height: 76.4px;
   padding-top: 20px;
@@ -149,9 +162,11 @@
   height: 30px;
   padding-top: 5px;
 }
+
 .cronograma  div{
   position: relative;
 }
+
 .cronograma  div a{
   width: 15px !important;
   height: 15px !important;
@@ -161,20 +176,25 @@
   right: 3px;
   background-color: #fff !important;
 }
+
 .cronograma  div a i{
   font-size: 1rem !important;
   line-height: 17px !important;
   color: #333 !important;
 }
+
 .sinRecargo{
   background-color: #51c9d2;
 }
+
 .cincoPorciento{
   background-color: #ffd700;
 }
+
 .quincePorciento{
   background-color: #602e9e;
 }
+
 .deshabilitado{
   background-color: #ada7a7;
 }
