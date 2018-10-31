@@ -53,7 +53,7 @@ schedule.addEventListener('click', (event) => {
    <p>Día: ${ad.day}</p>
    <div class='input-field'>
    <select id="select" onChange="selectInterval()" class="browser-default">
-   ${ intervals.map(({ interval }) => `<option>${interval}</option>`).join('')}
+   ${ intervals.map(({ interval, status }) => `<option ${status === 'available' ? '' : 'disabled'}>${interval}</option>`).join('')}
    </select>
    </div>
 </div>
