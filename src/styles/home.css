@@ -75,6 +75,7 @@ font-weight: 600;
 .fecha{
 font-size: 12px;
 font-weight: bold;
+background-color: #fff;
 }
 
 .cronograma .col div{
@@ -150,7 +151,7 @@ padding-top: 5px;
 }
 
 .cronograma .sabado div{
-height: 54.7px;
+height: 55.8px;
 padding-top: 5px;
 text-align: center;
 margin: 2px 2px; 
@@ -196,15 +197,15 @@ color: #333 !important;
 }
 
 .sinRecargo{
-background-color: #51c9d2;
+background-color: #4CB6BE;
 }
 
 .cincoPorciento{
-background-color: #ffd700;
+background-color: #E9C814;
 }
 
 .quincePorciento{
-background-color: #602e9e;
+background-color: #FF2768;
 }
 
 .deshabilitado{
@@ -246,4 +247,53 @@ body {
 }
 
 }
-
+.fondo-home{
+  background-image: url(http://www.comercial.americatv.com.pe/images/fondo2.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
+.titulo{
+  color: #fff;
+  text-align: left;
+}
+.titulo::after{
+  content: "";
+  width: 40px;
+  height: 4px;
+  background-color: #fb5404;
+  display: block;
+  
+  
+}
+.leyenda ul li{
+  display: inline-block;
+}
+.leyenda ul li::before{
+  content: " ";
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-right: 2px;
+    margin-left: 10px;
+    position: relative;
+    top: 2px;
+}
+.leyenda ul li:nth-child(1)::before{
+  background-color: #FF2768;
+}
+.leyenda ul li:nth-child(2)::before{
+  background-color: #4CB6BE;
+}
+.leyenda ul li:nth-child(3)::before{
+  background-color: #E9C814;
+}
+.leyenda ul li:nth-child(4)::before{
+  background-color: #ada7a7;
+}
+.leyenda ul{
+  text-align: left;
+  padding-top: 11px;
+  color: #fff;
+}
