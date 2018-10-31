@@ -40,8 +40,8 @@
                 <ul class="collapsible">
                     <li>
                         <div class="collapsible-header">Tus Reservas</div>
-                        <div class="collapsible-body"><a href="">Nueva Reserva</a></div>
-                        <div class="collapsible-body"> <a href="">Historial de Reserva</a></div>
+                        <div class="collapsible-body"><a href="./home.html">Nueva Reserva</a></div>
+                        <div class="collapsible-body"> <a href="./reservation-history.html">Historial de Reserva</a></div>
                     </li>
                     <li>
                         <div class="collapsible-header">Tus productos</div>
@@ -57,9 +57,20 @@
         </li>
         </ul>
     </section>
-    <div class="container-fluid center-align section">
+    <div class="container-fluid center-align section fondo-home">
+        <div class="container">
+            <h4 class="titulo">Nuestra Programación</h4>
+        </div>
         <div class="row container section">
-            <div class="input-field col s12 m6 offset-m3 l3 offset-l7">
+            <div class="col s12 m7 l7 leyenda">
+                <ul>
+                    <li>Sin Recarga</li>
+                    <li>5% de Recargo</li>
+                    <li>15% de recargo</li>
+                    <li>Reservado</li>
+                </ul>
+            </div>
+            <div class="input-field col s12 m4 l4">
                 <select id="brands" class="browser-default">
                     <option value="" disabled selected>Selecciona una marca</option>
                 </select>
@@ -539,6 +550,7 @@
             crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script src="../js/firebase.js"></script>
+        <script src="../js/materialize.js"></script>
         <script src="../js/home.js"></script>
 </body>
 

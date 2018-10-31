@@ -1,20 +1,4 @@
-// Or with jQuery
-$(document).ready(function () {
-  $('.sidenav').sidenav();
-  $('.collapsible').collapsible();
-});
 
-//Funcionalidad select
-document.addEventListener('DOMContentLoaded', () => {
-  var elems = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(elems);
-});
-
-//Funcionalidad modal
-document.addEventListener('DOMContentLoaded', () => {
-  var elems = document.querySelectorAll('.modal');
-  var instances = M.Modal.init(elems);
-});
 
 const ad = {
   currentId: '',
@@ -60,7 +44,6 @@ const printModal = () => {
 <div class="top-nav-modal">
   <span class="center-align modal-content">Datos de reserva</span>
 </div>
-
 <div class="modal-content">
   <p>Marca: ${ad.product}</p>
   <p>Precio por marca: ${ad.priceProduct}</p>
