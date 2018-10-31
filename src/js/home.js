@@ -56,10 +56,18 @@ const printModal = () => {
   <p>Programa: ${ad.show}</p>
   <p> Precio del Programa: ${ad.showPrice}</p>
    <p>Día: ${ad.day}</p>
-   <div class='input-field'>
+   <div class="input-field">
    <select id="select" onChange="selectInterval()" class="browser-default">
-   <option disabled selected>Seleciona un horario</option>
-   ${ ad.intervals.map(({ interval, status }) => `<option ${status === 'available' ? '' : 'disabled'}>${interval}</option>`).join('')}
+   <option value="" selected disabled>Seleciona un horario</option>
+   ${ 
+     ad.intervals.map(({ interval, status }) => `
+     <option 
+     ${ status === 'available' ? '' : 'disabled'} 
+     ${ ad.interval === interval ? 'selected' : ''}
+     >
+       ${interval}
+     </option>`).join('')
+    }
    </select>
    <p>Recargo: ${ad.recargo}</p>
    <p>Total: ${parseInt(ad.showPrice)  + parseInt(ad.priceProduct)  + parseInt( ad.recargo)}</p>
