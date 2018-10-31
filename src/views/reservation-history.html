@@ -58,16 +58,74 @@
     </ul>
   </section>
   <section class="container-fluid center-align section home-background">
+
     <div class="container">
       <h4 class="titulo">Historial de reservas</h4>
     </div>
+
     <div class="row container section">
-      <div class="input-field col s12 m4 l4">
-        <select id="" class="browser-default">
-          <option value="" disabled selected>Selecciona tu marca</option>
+      <div class="col s10 m6 offset-m5 l4 offset-l6">
+
+        <select id="brands" class="browser-default">
+          <option value="" disabled selected>Selecciona una marca</option>
         </select>
       </div>
     </div>
+    </div>
+
+    <section>
+      <div class="container mt-3">
+        <div class="row">
+
+            <div class="container z-depth-4  gray">
+                <div class="section row">
+                    <div class="center-align col l8">
+                        <span class="bold">Banco Central del Perú </span>
+                        <p>América Noticias Local </p>
+                        <p>Martes 20 de Febrero del 2018 </p>
+                        <p>05:00 am</p>
+                      </div>
+                      <div class="center-align col l4 s4">
+                        <div class="row">
+                          <button type="submit" class="col l7 s12 offset-s6 btn flow">Editar</button>
+                        </div>
+                        <div class="row">
+                          <button type="submit" class="col l7 s12 offset-s6 btn flow">Eliminar</button>
+                        </div>
+                        <div class="row">
+                          <p class="font-orange">Estado: pendiente</p>
+                        </div>
+                      </div>
+                </div>
+              </div>
+
+          <div class="container z-depth-4  gray">
+              <div class="section row">
+                  <div class="center-align col l8">
+                      <span class="bold">Banco Central del Perú </span>
+                      <p>América Noticias Local </p>
+                      <p>Martes 20 de Febrero del 2018 </p>
+                      <p>05:00 am</p>
+                    </div>
+                    <div class="center-align col l4 s4 ">
+                      <div class="row">
+                        <button type="submit" class="col l7 s12 offset-s6 btn flow">Editar</button>
+                      </div>
+                      <div class="row">
+                        <button type="submit" class="col l7 s12 offset-s6 btn flow">Eliminar</button>
+                      </div>
+                      <div class="row">
+                        <p class="font-blue">Estado: completado</p>
+                      </div>
+                    </div>
+              </div>
+            </div>
+
+        </div>
+
+  
+    </section>
+
   </section>
 
   <!--Firebase-->
@@ -75,7 +133,8 @@
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
   <!-- Compiled and minified JavaScript -->
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="../js/firebase.js"></script>
   <script src="../js/materialize.js"></script>

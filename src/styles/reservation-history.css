@@ -18,6 +18,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.8;
+    min-height: 100vh;
   }
 
   .titulo{
@@ -109,19 +110,46 @@
     display: block;
   }
   
-  @media (max-width: 600px){
-  .cronograma{
+  select {
+    margin-left: 15px;
+  }
+  
+  .mt-3 {
+    margin-top: 2rem;
+  }
+
+  .gray {
+    background: #F5F4F4;
+    border-radius: 5px;
+  }
+
+  .bold {
+    font-weight:700;
+  }
+
+  .flow {
+    background-color: #fb5404;
+    color: #fff !important;
+    /* float:right; */
+  }
+
+  .flow:hover {
+    background-color: gray;
+    color: #fff !important;
+  }
+
+  .font-orange {
+    color: #fb5404;
+    font-weight: 900;
     font-size: 14px;
-    font-weight: 500;
+    text-align: left;
+    margin: 0;
   }
+
+  .font-blue {
+    color: #533869;
+    font-weight: 900;
+    font-size: 14px;
+    text-align: left;
+    margin: 0;
   }
-  
-  @media (max-width: 900px){
-  .cronograma{
-    font-size: 12px;
-    font-weight: 700;
-  }
-  
-  }
-  
-  
