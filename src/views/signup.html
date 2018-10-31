@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>América TV</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!--Font Google-->
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <!-- CSS Optional -->
+  <link rel="stylesheet" href="../styles/form.css">
+</head>
+
+<body>
+  <main>
+    <!--header-->
+    <header>
+      <nav class="transparent z-depth-0">
+        <div class="navbar-fixed">
+          <div class="nav-wrapper">
+            <div class="container">
+              <a href="#" class="brand-logo">
+                <span class="valign-wrapper"><img src="http://www.comercial.americatv.com.pe/images/logo_header.png"
+                    alt="logo">
+                  <span class="pl fw-900 fs-18">AMÉRICA TV</span></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!--content-->
+    <section class="section">
+      <div class="container">
+        <div class="row">
+          <div id="register">
+            <h5 class="text center fs-38 fw-900">Registrarse</h5>
+            <div class="container center-align">
+              <div class="row z-depth-1 grey lighten-4 login-form">
+                <form class="col s12" id="signup">
+                  <div class="container section center-align">
+                    <img src="http://www.comercial.americatv.com.pe/images/logo_form_login.png" alt="logo-form">
+                  </div>
+                  <div class="row pb-0">
+                    <div class="input-field col s12 m6 pt-4">
+                      <input id="company" class="validate in" type="text" name="company" />
+                      <label for="company">Empresa/agencia</label>
+                    </div>
+                    <div class="input-field col s12 m6 pt-4">
+                      <input id="name" class="validate in" type="text" name="name" />
+                      <label for="name">Nombre</label>
+                    </div>
+                    <div class="input-field col s12 m6 pt-4">
+                      <input id="position" class="validate in" type="text" name="position" />
+                      <label for="position">Cargo</label>
+                    </div>
+                    <div class="input-field col s12 m6 pt-4">
+                      <input id="email" class="validate in" type="email" name="email" />
+                      <label for="email">Correo</label>
+                    </div>
+                   <div class="input-field col s12 m6 pt-4">
+                      <input id="password" class="in" type="password" name="password" />
+                      <label for="password">Contraseña</label>
+                    </div>
+                    <div class="input-field col s12 m6 pt-4">
+                      <input id="confirmpass" class="in" type="password" name="confirmpass" />
+                      <label for="confirmpass">Confirmar contraseña</label>
+                    </div>
+                    <div class="section mt-3 pb-3">
+                      <button type="submit" class="col s12 btn btn-large waves-effect fw-700 fsi">Registrar Datos</button>
+                    </div>
+                    <div class="pt-5 pb-3 mt-3">
+                      <button type="submit" class="fw-700 fsi mt-3 p-0 btn-link pull-left">
+                        <span>
+                          <a href="login.html" class="text-center fw-700 btn-login-register">Ya tengo una cuenta</a>
+                        </span>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!--Firebase-->
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+  <script src="../js/firebase.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="../js/firebase.js"></script>
+  <script src="../js/signup.js"></script>
+</body>
+
+</html>
