@@ -27,4 +27,3 @@ const getBrands = () => db.collection('products').get()
   })
 
 const getShowInfo = id => db.doc(`shows/${id}`).get().then(doc => doc.data());
-
