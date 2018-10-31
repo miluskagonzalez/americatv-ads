@@ -36,15 +36,18 @@ getBrands().then(brand => {
   arr.forEach((e, i) => {
     const optionBrand = document.createElement('option');
     optionBrand.textContent = arr[i].product;
+    optionBrand.id = arr[i].charge;
+    console.log(arr[i].charge);
     optionBrand.value = arr[i].product;
     brands.appendChild(optionBrand);
   });
 });
 
-brands.addEventListener('click', (event) => {
+brands.addEventListener('change', (event) => {
   console.log(event.target.value);
   const brand = event.target.value;
   ad.product = brand;
+  
 });
 
 
@@ -69,7 +72,6 @@ schedule.addEventListener('click', (event) => {
    </nav>
 </div>
 <div class="modal-content">
-
   <p>Marca: ${ad.product}</p>
   <p>Programa: ${ad.show}</p>
    <p>Día: ${ad.day}</p>
