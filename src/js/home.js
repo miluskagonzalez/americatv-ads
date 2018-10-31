@@ -5,7 +5,7 @@ $(document).ready(function () {
 });
 
 //Funcionalidad select
-document.addEventListener('DOMContentLoaded', ()  => {
+document.addEventListener('DOMContentLoaded', () => {
   var elems = document.querySelectorAll('select');
   var instances = M.FormSelect.init(elems);
 });
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const ad = { // 
-  product: null,
+  product: '',
   priceProduct: 0,
   showName: null, //name
   showPrice: 0, //fee
@@ -27,22 +27,37 @@ const ad = { //
 }
 
 const schedule = document.getElementById('schedule');
+const brands = document.getElementById('brands');
+
+//Creando elementos del DOM para mostrar las marcas
+getBrands().then(brand => {
+  const arr = brand;
+  //console.log(arr);
+  arr.forEach((e, i) => {
+    const optionBrand = document.createElement('option');
+    optionBrand.textContent = arr[i].product;
+    optionBrand.value = arr[i].product;
+    brands.appendChild(optionBrand);
+  });
+});
+
+brands.addEventListener('click', (event) => {
+  console.log(event.target.value);
+  const brand = event.target.value;
+  ad.product = brand;
+});
+
+
+
 
 schedule.addEventListener('click', (event) => {
   if (event.target.nodeName === 'I') {
     getShowInfo(event.target.dataset.name).then(o => {
       /* console.log(o.data()); */
-      const { fee, name, schedule } = o.data(); // precio, nombre del programa, día 
-      const intervals = schedule.find(({ day }) => day === event.target.dataset.date)
-
-      ad.showName = name;
-      ad.showDay = schedule;
-      ad.schedule = intervals;
-      ad.showPrice = fee;
-
+     
       //Creando modal
-      document.getElementById('modal1').innerHTML = 
-      `
+      document.getElementById('modal1').innerHTML =
+        `
 <div class="navbar-fixed">
    <nav class="orange">
        <div class="nav-wrapper container ">
@@ -53,9 +68,8 @@ schedule.addEventListener('click', (event) => {
 
 
 <div class="modal-content">
-   <p>Programa: ${ad.showName}</p>
-   <p>Fecha: ${ad.schedule}</p>
-   <select>Hora: ${ad.showPrice}</select>
+   
+   <p>Marca: ${ad.product}</p>
 </div>
 
 <div class="modal-footer">
@@ -68,3 +82,5 @@ schedule.addEventListener('click', (event) => {
 
   }
 });
+
+

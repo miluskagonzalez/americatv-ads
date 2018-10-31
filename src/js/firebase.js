@@ -14,6 +14,7 @@ db.settings({ timestampsInSnapshots: true });
 
 //función registro
 const signUp = (email, password) => auth.createUserWithEmailAndPassword(email, password);
+
 // función inicio de sesión
 const signIn = (email, password) => auth.signInWithEmailAndPassword(email, password);
 
@@ -23,7 +24,7 @@ const getBrands = () => db.collection('products').get()
   .then(snapshot => {
     const brands = [];
     snapshot.forEach(doc => brands.push(doc.data()));
-    return brands
-  })
+    return brands;
+  });  
 
 const getShowInfo = id => db.doc(`shows/${id}`).get().then(doc => doc.data());
