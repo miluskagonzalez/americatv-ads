@@ -22,6 +22,7 @@ const ad = {
   show: '', //name
   showPrice: 0, //fee
   day: '',
+  intervals: [],
   interval: '',
   recargo: 0 // 
 }
@@ -44,8 +45,47 @@ getBrands().then(brand => {
   });
 });
 
+const printModal = () => {
+  document.getElementById('modal1').innerHTML =
+          `
+<div class="top-nav-modal">
+  <span class="center-align modal-content">Datos de reserva</span>
+</div>
+
+<div class="modal-content">
+  <p>Marca: ${ad.product}</p>
+  <p>Precio por marca: ${ad.priceProduct}</p>
+  <p>Programa: ${ad.show}</p>
+  <p> Precio del Programa: ${ad.showPrice}</p>
+   <p>Día: ${ad.day}</p>
+   <div class="input-field">
+   <select id="select" onChange="selectInterval()" class="browser-default">
+   <option value="" selected disabled>Seleciona un horario</option>
+   ${ 
+     ad.intervals.map(({ interval, status }) => `
+     <option 
+     ${ status === 'available' ? '' : 'disabled'} 
+     ${ ad.interval === interval ? 'selected' : ''}
+     >
+       ${interval}
+     </option>`).join('')
+    }
+   </select>
+   <p>Recargo: ${ad.recargo}</p>
+   <p>Total: ${parseInt(ad.showPrice)  + parseInt(ad.priceProduct)  + parseInt( ad.recargo)}</p>
+   </div>
+</div>
+<div class="modal-footer">
+   ${ad.interval.length 
+    ? '<button class="btn waves-effect waves-light" type="submit" name="action">Agregar reserva<i class="material-icons right">send</i></button>' 
+    : ''}
+</div>`
+}
+
 brands.addEventListener('change', (event) => {
-  console.log(event.target.value);
+  Array.prototype.forEach.call(document.querySelectorAll('.btn-floating'), item => {
+    item.classList.remove('display-none');
+  })
   const brand = event.target.value;
   ad.product = brand;
   ad.priceProduct = event.target.options[event.target.selectedIndex].id;
@@ -61,50 +101,34 @@ schedule.addEventListener('click', (event) => {
         ad.show = name;
         ad.showPrice = fee
         ad.day = day
+        ad.intervals = intervals
 
-        //Creando modal
-        document.getElementById('modal1').innerHTML =
-          `
-<div class="navbar-fixed">
-   <nav class="orange">
-       <div class="nav-wrapper container ">
-           <h4 class="center-align modal-content">Datos de reserva</h4>
-       </div>
-   </nav>
-</div>
-<div class="modal-content">
-  <p>Marca: ${ad.product}</p>
-  <p>Programa: ${ad.show}</p>
-   <p>Día: ${ad.day}</p>
-   <div class='input-field'>
-   <select id="select" onChange="selectInterval()" class="browser-default">
-   ${ intervals.map(({ interval, status }) => `<option ${status === 'available' ? '' : 'disabled'}>${interval}</option>`).join('')}
-   </select>
-   </div>
-</div>
-<div class="modal-footer">
-   <button class="btn waves-effect waves-light" type="submit" name="action">Agregar reserva
-       <i class="material-icons right">send</i>
-   </button>
-</div>`
+        printModal();
       })
   }
 });
 
 const selectInterval = () => {
   const interval = document.getElementById('select').value;
-
-  ad.interval = interval;
+ 
+  ad.interval =  interval;
+  console.log(parseFloat (interval))
 
   switch (true) {
-    case (interval >= 8 && interval < 12):
+    case ( parseFloat (interval) >= 8 && parseFloat (interval) < 12):
       ad.recargo = 0;
+      console.log(ad.recargo)
       break;
-    case (interval >= 12 && interval < 16):
-      ad.recargo = 0.05 * (ad.priceProduct + ad.showPrice);
+    case (parseFloat (interval) >= 12 && parseFloat (interval) < 16):
+      ad.recargo = 0.05 * (parseInt(ad.priceProduct) + parseInt(ad.showPrice) );
+      console.log(ad.recargo)
       break;
     default:
-      ad.recargo = 0.15 * (ad.priceProduct + ad.showPrice);
+      ad.recargo = 0.15 * (parseInt(ad.priceProduct) + parseInt(ad.showPrice) );
+      console.log(ad.recargo)
       break;
   }
+  printModal();
 };
+
+
