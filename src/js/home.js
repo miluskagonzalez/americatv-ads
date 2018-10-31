@@ -5,7 +5,7 @@ $(document).ready(function () {
 });
 
 //Funcionalidad select
-document.addEventListener('DOMContentLoaded', ()  => {
+document.addEventListener('DOMContentLoaded', () => {
   var elems = document.querySelectorAll('select');
   var instances = M.FormSelect.init(elems);
 });
@@ -17,12 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const ad = { // 
-  product: null,
+  product: '',
   priceProduct: 0,
-  showName: null, //name
+  show: '', //name
   showPrice: 0, //fee
-  showDay: null,
-  schedule: null,
+  day: '',
+  interval: '',
   recargo: 0 // 
 }
 
@@ -30,19 +30,17 @@ const schedule = document.getElementById('schedule');
 
 schedule.addEventListener('click', (event) => {
   if (event.target.nodeName === 'I') {
-    getShowInfo(event.target.dataset.name).then(o => {
-      /* console.log(o.data()); */
-      const { fee, name, schedule } = o.data(); // precio, nombre del programa, día 
-      const intervals = schedule.find(({ day }) => day === event.target.dataset.date)
+    getShowInfo(event.target.dataset.name)
+      .then(({ fee, name, schedule }) => {
+        const { day, intervals } = schedule.find(({ day }) => day === event.target.dataset.date)
 
-      ad.showName = name;
-      ad.showDay = schedule;
-      ad.schedule = intervals;
-      ad.showPrice = fee;
+        ad.show = name;
+        ad.showPrice = fee
+        ad.day = day
 
-      //Creando modal
-      document.getElementById('modal1').innerHTML = 
-      `
+        //Creando modal
+        document.getElementById('modal1').innerHTML =
+          `
 <div class="navbar-fixed">
    <nav class="orange">
        <div class="nav-wrapper container ">
@@ -50,21 +48,38 @@ schedule.addEventListener('click', (event) => {
        </div>
    </nav>
 </div>
-
-
 <div class="modal-content">
-   <p>Programa: ${ad.showName}</p>
-   <p>Fecha: ${ad.schedule}</p>
-   <select>Hora: ${ad.showPrice}</select>
+   <p>Programa: ${ad.show}</p>
+   <p>Día: ${ad.day}</p>
+   <div class='input-field'>
+   <select id="select" onChange="selectInterval()" class="browser-default">
+   ${ intervals.map(({ interval }) => `<option>${interval}</option>`).join('')}
+   </select>
+   </div>
 </div>
-
 <div class="modal-footer">
    <button class="btn waves-effect waves-light" type="submit" name="action">Agregar reserva
        <i class="material-icons right">send</i>
    </button>
 </div>`
-    })
-    /* console.log(event.target.dataset.date); */
-
+      })
   }
 });
+
+const selectInterval = () => {
+  const interval = document.getElementById('select').value;
+
+  ad.interval = interval;
+
+  switch (true) {
+    case (interval >= 8 && interval < 12):
+      ad.recargo = 0;
+      break;
+    case (interval >= 12 && interval < 16):
+      ad.recargo = 0.05 * (ad.priceProduct + ad.showPrice);
+      break;
+    default:
+      ad.recargo = 0.15 * (ad.priceProduct + ad.showPrice);
+      break;
+  }
+}
