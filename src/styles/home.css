@@ -52,3 +52,114 @@
   margin-top: 13px;
   margin-left: 10px;
 }
+.cronograma{
+  font-size: 10px;
+}
+.fecha{
+  font-size: 12px;
+  font-weight: bold;
+}
+.cronograma .col div{
+  border:1px solid #eaeaea;
+}
+.cronograma .l1{
+      padding: 0rem !important;
+}
+.cronograma .lunes div{
+  height: 50px;
+  padding-top: 15px;
+  text-align: center;
+}
+.cronograma .lunes .fecha{
+  height: 30px;
+  padding-top: 5px;
+}
+.cronograma .martes div{
+  height: 50px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.cronograma .martes .fecha{
+  height: 30px;
+  padding-top: 5px;
+}
+.cronograma .miercoles div{
+  height: 45.7px;
+  padding-top: 0px;
+  text-align: center;
+}
+
+.cronograma .miercoles .fecha{
+  height: 30px;
+  padding-top: 5px;
+}
+.cronograma .jueves div{
+  height: 45.7px;
+  padding-top: 0px;
+  text-align: center;
+}
+
+.cronograma .jueves .fecha{
+  height: 30px;
+  padding-top: 5px;
+}
+.cronograma .viernes div{
+  height: 45.7px;
+  padding-top: 0px;
+  text-align: center;
+}
+
+.cronograma .viernes .fecha{
+  height: 30px;
+  padding-top: 5px;
+}
+.cronograma .sabado div{
+  height: 55.4px;
+  padding-top: 5px;
+  text-align: center;
+}
+
+.cronograma .sabado .fecha{
+  height: 30px;
+  padding-top: 5px;
+}
+.cronograma .domingo div{
+  height: 75.2px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.cronograma .domingo .fecha{
+  height: 30px;
+  padding-top: 5px;
+}
+.cronograma  div{
+  position: relative;
+}
+.cronograma  div a{
+  width: 15px !important;
+  height: 15px !important;
+  line-height: 15px !important;
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  background-color: #fff !important;
+}
+.cronograma  div a i{
+  font-size: 1rem !important;
+  line-height: 17px !important;
+  color: #333 !important;
+}
+.sinRecargo{
+  background-color: #51c9d2;
+}
+.cincoPorciento{
+  background-color: #ffd700;
+}
+.quincePorciento{
+  background-color: #602e9e;
+}
+.deshabilitado{
+  background-color: #ada7a7;
+}
