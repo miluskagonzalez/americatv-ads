@@ -1,17 +1,9 @@
 
-/* var article = document.getElementById('electriccars'); */
-const container = document.getElementById('container');
+  // Or with jQuery
 
-container.addEventListener('click', (event) => {
-    console.log(event.target.dataset.indexNumber);
-});
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+    $('.collapsible').collapsible();
+  });
 
-
-document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.modal');
-    var instances = M.Modal.init(elems);
-});
-
-/*   $(document).ready(function(){
-    $('.modal-trigger').leanModal();
-  }); */
+  
