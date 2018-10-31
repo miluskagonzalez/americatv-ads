@@ -18,3 +18,7 @@ const signUp = (email, password) => auth.createUserWithEmailAndPassword(email, p
 const signIn = (email, password) => auth.signInWithEmailAndPassword(email, password);
 
 const saveUser = (user) => db.doc(`users/${user.uid}`).set(user);
+
+const getBrands = (user) => user;
+
+const getShowInfo = id => db.doc(`shows/${id}`).get();
