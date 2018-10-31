@@ -219,6 +219,15 @@ background-color: #ada7a7;
   background-color: #fb5404;
   font-weight: bold;
 }
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
+
 @media (max-width: 600px){
 .cronograma{
   font-size: 14px;

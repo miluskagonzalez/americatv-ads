@@ -73,7 +73,9 @@ const printModal = () => {
 }
 
 brands.addEventListener('change', (event) => {
-  console.log(event.target.value);
+  Array.prototype.forEach.call(document.querySelectorAll('.btn-floating'), item => {
+    item.classList.remove('display-none');
+  })
   const brand = event.target.value;
   ad.product = brand;
   ad.priceProduct = event.target.options[event.target.selectedIndex].id;
