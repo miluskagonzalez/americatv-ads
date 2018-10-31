@@ -4,49 +4,67 @@ $(document).ready(function () {
   $('.collapsible').collapsible();
 });
 
-const ad = {
-product: null,
-nameProduct: null,
-priceProduct: 0,
-price: 0,
-recargo: 0,
+//Funcionalidad select
+document.addEventListener('DOMContentLoaded', ()  => {
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems);
+});
+
+//Funcionalidad modal
+document.addEventListener('DOMContentLoaded', () => {
+  var elems = document.querySelectorAll('.modal');
+  var instances = M.Modal.init(elems);
+});
+
+const ad = { // 
+  product: null,
+  priceProduct: 0,
+  showName: null, //name
+  showPrice: 0, //fee
+  showDay: null,
+  schedule: null,
+  recargo: 0 // 
 }
 
 const schedule = document.getElementById('schedule');
 
 schedule.addEventListener('click', (event) => {
   if (event.target.nodeName === 'I') {
-    console.log(event.target.dataset.name);
-    console.log(event.target.dataset.date);
-  }
-});
+    getShowInfo(event.target.dataset.name).then(o => {
+      /* console.log(o.data()); */
+      const { fee, name, schedule } = o.data(); // precio, nombre del programa, día 
+      const intervals = schedule.find(({ day }) => day === event.target.dataset.date)
 
+      ad.showName = name;
+      ad.showDay = schedule;
+      ad.schedule = intervals;
+      ad.showPrice = fee;
 
-{/* <button class="waves-effect waves-light btn modal-trigger" data-target="modal1">Modal</button> */}
-
-//Creando modal
-`<div id="modal1" class="modal">
+      //Creando modal
+      document.getElementById('modal1').innerHTML = 
+      `
 <div class="navbar-fixed">
-    <nav class="orange">
-        <div class="nav-wrapper container">
-            <h4 class="center-align modal-content">Datos de reserva</h4>
-        </div>
-    </nav>
+   <nav class="orange">
+       <div class="nav-wrapper container ">
+           <h4 class="center-align modal-content">Datos de reserva</h4>
+       </div>
+   </nav>
 </div>
 
 
 <div class="modal-content">
-    <p>Cliente: ${Cliente}</p>
-    <p>Marca: ${Marca}</p>
-    <p>Program: ${Programa}</p>
-    <p>Fecha: ${Día}</p>
-    <select>Hora: ${Hora}</select>
+   <p>Programa: ${ad.showName}</p>
+   <p>Fecha: ${ad.schedule}</p>
+   <select>Hora: ${ad.showPrice}</select>
 </div>
 
 <div class="modal-footer">
-    <button class="btn waves-effect waves-light" type="submit" name="action">Agregar reserva
-        <i class="material-icons right">send</i>
-    </button>
-</div>
-
+   <button class="btn waves-effect waves-light" type="submit" name="action">Agregar reserva
+       <i class="material-icons right">send</i>
+   </button>
 </div>`
+    })
+    /* console.log(event.target.dataset.date); */
+
+  }
+});
