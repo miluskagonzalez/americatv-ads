@@ -3,13 +3,12 @@ body {
 }
 
 main {
-  background-image: url('http://www.comercial.americatv.com.pe/images/fondo1.jpg');
-  background-size: cover;
+  background-image: url('http://www.comercial.americatv.com.pe/images/fondo4.jpg');
+  transition: all 1s;
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5) !important;
+	background-size: cover;
   font-weight: bold;
   min-height: 100vh;
-  max-width: 100%;
-  background: linear-gradient(to top, rgba(000,000,000,0.35));
-  display: flex;
-	align-items: center;
-	justify-content: center;
+  max-width: 100;
+
 }
