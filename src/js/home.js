@@ -16,13 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
   var instances = M.Modal.init(elems);
 });
 
-const ad = { // 
-  product: '',
+const ad = {
+  product: '', //marca
   priceProduct: 0,
-  showName: null, //name
+  show: '', //name
   showPrice: 0, //fee
-  showDay: null,
-  schedule: null,
+  day: '',
+  interval: '',
   recargo: 0 // 
 }
 
@@ -48,16 +48,19 @@ brands.addEventListener('click', (event) => {
 });
 
 
-
-
 schedule.addEventListener('click', (event) => {
   if (event.target.nodeName === 'I') {
-    getShowInfo(event.target.dataset.name).then(o => {
-      /* console.log(o.data()); */
-     
-      //Creando modal
-      document.getElementById('modal1').innerHTML =
-        `
+    getShowInfo(event.target.dataset.name)
+      .then(({ fee, name, schedule }) => {
+        const { day, intervals } = schedule.find(({ day }) => day === event.target.dataset.date)
+
+        ad.show = name;
+        ad.showPrice = fee
+        ad.day = day
+
+        //Creando modal
+        document.getElementById('modal1').innerHTML =
+          `
 <div class="navbar-fixed">
    <nav class="orange">
        <div class="nav-wrapper container ">
@@ -65,22 +68,39 @@ schedule.addEventListener('click', (event) => {
        </div>
    </nav>
 </div>
-
-
 <div class="modal-content">
-   
-   <p>Marca: ${ad.product}</p>
+  <p>Marca: ${ad.product}</p>
+  <p>Programa: ${ad.show}</p>
+  <p>Día: ${ad.day}</p>
+  <div class='input-field'>
+  <select id="select" onChange="selectInterval()" class="browser-default">
+  ${ intervals.map(({ interval }) => `<option>${interval}</option>`).join('')}
+  </select>
+  </div>
 </div>
-
 <div class="modal-footer">
    <button class="btn waves-effect waves-light" type="submit" name="action">Agregar reserva
        <i class="material-icons right">send</i>
    </button>
 </div>`
-    })
-    /* console.log(event.target.dataset.date); */
-
+      })
   }
 });
 
+const selectInterval = () => {
+  const interval = document.getElementById('select').value;
 
+  ad.interval = interval;
+
+  switch (true) {
+    case (interval >= 8 && interval < 12):
+      ad.recargo = 0;
+      break;
+    case (interval >= 12 && interval < 16):
+      ad.recargo = 0.05 * (ad.priceProduct + ad.showPrice);
+      break;
+    default:
+      ad.recargo = 0.15 * (ad.priceProduct + ad.showPrice);
+      break;
+  }
+};

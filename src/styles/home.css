@@ -56,14 +56,17 @@
   height: 55px;
   background-color: #fb5404;
 }
+
 .top-nav a{
   color: #fff;
   
 }
+
 .top-nav a i{
   margin-top: 13px;
   margin-left: 10px;
 }
+
 .cronograma{
   font-size: 11px;
   font-weight: 600;
@@ -73,25 +76,34 @@
   font-size: 12px;
   font-weight: bold;
 }
+
 .cronograma .col div{
   border:1px solid #eaeaea;
 }
+
 .cronograma .l1{
       padding: 0rem !important;
 }
+
 .cronograma .lunes div{
-  height: 50px;
+  height: 50.3px;
   padding-top: 15px;
   text-align: center;
+  margin: 2px 2px; 
+  border-radius: 4px;
 }
+
 .cronograma .lunes .fecha{
   height: 30px;
   padding-top: 5px;
 }
+
 .cronograma .martes div{
-  height: 50px;
+  height: 50.3px;
   padding-top: 15px;
   text-align: center;
+  margin: 2px 2px; 
+  border-radius: 4px;
 }
 
 .cronograma .martes .fecha{
@@ -102,36 +114,47 @@
   height: 45.7px;
   padding-top: 0px;
   text-align: center;
+  margin: 2px 2px; 
+  border-radius: 4px;
 }
 
 .cronograma .miercoles .fecha{
   height: 30px;
   padding-top: 5px;
 }
+
 .cronograma .jueves div{
   height: 45.7px;
   padding-top: 0px;
   text-align: center;
+  margin: 2px 2px; 
+  border-radius: 4px;
 }
 
 .cronograma .jueves .fecha{
   height: 30px;
   padding-top: 5px;
 }
+
 .cronograma .viernes div{
   height: 45.7px;
   padding-top: 0px;
   text-align: center;
+  margin: 2px 2px; 
+  border-radius: 4px;
 }
 
 .cronograma .viernes .fecha{
   height: 30px;
   padding-top: 5px;
 }
+
 .cronograma .sabado div{
-  height: 55.4px;
+  height: 54.7px;
   padding-top: 5px;
   text-align: center;
+  margin: 2px 2px; 
+  border-radius: 4px;
 }
 
 .cronograma .sabado .fecha{
@@ -140,9 +163,11 @@
 }
 
 .cronograma .domingo div{
-  height: 75.2px;
+  height: 76.4px;
   padding-top: 20px;
   text-align: center;
+  margin: 2px 2px; 
+  border-radius: 4px;
 }
 
 .cronograma .domingo .fecha{
