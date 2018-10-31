@@ -45,7 +45,7 @@ getBrands().then(brand => {
 
 const printModal = () => {
   document.getElementById('modal1').innerHTML =
-          `
+    `
 <div class="top-nav-modal">
   <span class="center-align modal-content">Datos de reserva</span>
 </div>
@@ -59,8 +59,8 @@ const printModal = () => {
    <div class="input-field">
    <select id="select" onChange="selectInterval()" class="browser-default">
    <option value="" selected disabled>Seleciona un horario</option>
-   ${ 
-     ad.intervals.map(({ interval, status }) => `
+   ${
+    ad.intervals.map(({ interval, status }) => `
      <option 
      ${ status === 'available' ? '' : 'disabled'} 
      ${ ad.interval === interval ? 'selected' : ''}
@@ -70,13 +70,13 @@ const printModal = () => {
     }
    </select>
    <p>Recargo: ${ad.recargo}</p>
-   <p>Total: ${parseInt(ad.showPrice)  + parseInt(ad.priceProduct)  + parseInt( ad.recargo)}</p>
+   <p>Total: ${parseInt(ad.showPrice) + parseInt(ad.priceProduct) + parseInt(ad.recargo)}</p>
    </div>
 </div>
 <div class="modal-footer">
-   ${ad.interval.length 
-    ? '<button class="btn waves-effect waves-light" type="submit" name="action">Agregar reserva<i class="material-icons right">send</i></button>' 
-    : ''}
+   ${ad.interval.length
+      ? '<button id="btnSaveReservation" class="btn waves-effect waves-light" type="submit" name="action">Agregar reserva<i class="material-icons right">send</i></button>'
+      : ''}
 </div>`
 }
 
@@ -106,27 +106,30 @@ schedule.addEventListener('click', (event) => {
   }
 });
 
+const waitToSaveData = () => document
+  .getElementById('btnSaveReservation')
+  .saveReservation(ad)
+
 const selectInterval = () => {
   const interval = document.getElementById('select').value;
- 
-  ad.interval =  interval;
-  console.log(parseFloat (interval))
+
+  ad.interval = interval;
+  console.log(parseFloat(interval))
 
   switch (true) {
-    case ( parseFloat (interval) >= 8 && parseFloat (interval) < 12):
+    case (parseFloat(interval) >= 8 && parseFloat(interval) < 12):
       ad.recargo = 0;
       console.log(ad.recargo)
       break;
-    case (parseFloat (interval) >= 12 && parseFloat (interval) < 16):
-      ad.recargo = 0.05 * (parseInt(ad.priceProduct) + parseInt(ad.showPrice) );
+    case (parseFloat(interval) >= 12 && parseFloat(interval) < 16):
+      ad.recargo = 0.05 * (parseInt(ad.priceProduct) + parseInt(ad.showPrice));
       console.log(ad.recargo)
       break;
     default:
-      ad.recargo = 0.15 * (parseInt(ad.priceProduct) + parseInt(ad.showPrice) );
+      ad.recargo = 0.15 * (parseInt(ad.priceProduct) + parseInt(ad.showPrice));
       console.log(ad.recargo)
       break;
   }
   printModal();
+  waitToSaveData();
 };
-
-
