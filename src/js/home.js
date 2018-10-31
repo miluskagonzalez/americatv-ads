@@ -22,6 +22,7 @@ const ad = {
   show: '', //name
   showPrice: 0, //fee
   day: '',
+  intervals: [],
   interval: '',
   recargo: 0 // 
 }
@@ -42,6 +43,35 @@ getBrands().then(brand => {
   });
 });
 
+const printModal = () => {
+  document.getElementById('modal1').innerHTML =
+          `
+<div class="top-nav-modal">
+  <span class="center-align modal-content">Datos de reserva</span>
+</div>
+
+<div class="modal-content">
+  <p>Marca: ${ad.product}</p>
+  <p>Precio por marca: ${ad.priceProduct}</p>
+  <p>Programa: ${ad.show}</p>
+  <p> Precio del Programa: ${ad.showPrice}</p>
+   <p>Día: ${ad.day}</p>
+   <div class='input-field'>
+   <select id="select" onChange="selectInterval()" class="browser-default">
+   <option disabled selected>Seleciona un horario</option>
+   ${ ad.intervals.map(({ interval, status }) => `<option ${status === 'available' ? '' : 'disabled'}>${interval}</option>`).join('')}
+   </select>
+   <p>Recargo: ${ad.recargo}</p>
+   <p>Total: ${parseInt(ad.showPrice)  + parseInt(ad.priceProduct)  + parseInt( ad.recargo)}</p>
+   </div>
+</div>
+<div class="modal-footer">
+   ${ad.interval.length 
+    ? '<button class="btn waves-effect waves-light" type="submit" name="action">Agregar reserva<i class="material-icons right">send</i></button>' 
+    : ''}
+</div>`
+}
+
 brands.addEventListener('change', (event) => {
   console.log(event.target.value);
   const brand = event.target.value;
@@ -59,35 +89,9 @@ schedule.addEventListener('click', (event) => {
         ad.show = name;
         ad.showPrice = fee
         ad.day = day
+        ad.intervals = intervals
 
-        //Creando modal
-        document.getElementById('modal1').innerHTML =
-          `
-<div class="top-nav-modal">
-  <span class="center-align modal-content">Datos de reserva</span>
-</div>
-
-<div class="modal-content">
-  <p>Marca: ${ad.product}</p>
-  <p>Programa: ${ad.show}</p>
-   <p>Día: ${ad.day}</p>
-   <div class='input-field'>
-   <p>Precio del Producto: ${ad.priceProduct}</p>
-
-   <select id="select" onChange="selectInterval()" class="browser-default">
-   ${ intervals.map(({ interval, status }) => `<option ${status === 'available' ? '' : 'disabled'}>${interval}</option>`).join('')}
-   </select>
-
-   <p> Precio del Programa: ${ad.showPrice}</p>
-   <p>Recargo: ${ad.recargo}</p>
-   <p>Total: ${parseInt(ad.showPrice)  + parseInt(ad.priceProduct)  + parseInt( ad.recargo)}</p>
-   </div>
-</div>
-<div class="modal-footer">
-   <button class="btn waves-effect waves-light" type="submit" name="action">Agregar reserva
-       <i class="material-icons right">send</i>
-   </button>
-</div>`
+        printModal();
       })
   }
 });
@@ -112,6 +116,7 @@ const selectInterval = () => {
       console.log(ad.recargo)
       break;
   }
+  printModal();
 };
 
 
