@@ -39,6 +39,7 @@ getBrands().then(brand => {
     optionBrand.id = arr[i].charge;
     console.log(arr[i].charge);
     optionBrand.value = arr[i].product;
+    optionBrand.id = e.charge;
     brands.appendChild(optionBrand);
   });
 });
@@ -47,7 +48,7 @@ brands.addEventListener('change', (event) => {
   console.log(event.target.value);
   const brand = event.target.value;
   ad.product = brand;
-  
+  ad.priceProduct = event.target.options[event.target.selectedIndex].id;
 });
 
 
