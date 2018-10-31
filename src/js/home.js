@@ -49,7 +49,6 @@ const printModal = () => {
 <div class="top-nav-modal">
   <span class="center-align modal-content">Datos de reserva</span>
 </div>
-
 <div class="modal-content">
   <p>Marca: ${ad.product}</p>
   <p>Precio por marca: ${ad.priceProduct}</p>
@@ -120,5 +119,3 @@ const selectInterval = () => {
   }
   printModal();
 };
-
-
