@@ -46,7 +46,7 @@ brands.addEventListener('change', (event) => {
   console.log(event.target.value);
   const brand = event.target.value;
   ad.product = brand;
- ad.priceProduct = event.target.options[event.target.selectedIndex].id
+  ad.priceProduct = event.target.options[event.target.selectedIndex].id;
 });
 
 
@@ -68,8 +68,7 @@ schedule.addEventListener('click', (event) => {
 </div>
 
 <div class="modal-content">
-
-  <p>Marca: <span> ${ad.product} </span></p>
+  <p>Marca: ${ad.product}</p>
   <p>Programa: ${ad.show}</p>
    <p>Día: ${ad.day}</p>
    <div class='input-field'>
