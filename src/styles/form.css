@@ -10,7 +10,30 @@ main {
 	background-size: cover;
   font-weight: bold;
   min-height: 100vh;
-  max-width: 100%;
+  max-width: 100;
+/*   background: linear-gradient(to top, rgba(000,000,000,0.35)); */
+}
+
+.login-form {
+  display: inline-block; 
+  padding: 32px 48px 0px 48px;
+  border: 1px solid #fff;
+  box-shadow: 5px 5px 25px 7px rgba(0,0,0,0.3);
+  border-radius: 5px
+}
+
+.btn-large {
+  background-color:#ff5000 !important;
+  border-radius: 5px
+}
+
+.btn-large:hover {
+  background-color:#533869 !important;
+  border-radius: 5px
+}
+
+.pb-0 {
+  padding-bottom: 0px;
 }
 
 .pl {
@@ -21,18 +44,117 @@ main {
   padding-top: 5px;
 }
 
-.fs-38 {
-  font-size: 38px;
+.pb-3 {
+  padding-bottom: 1rem;
 }
- 
+
+.pt-4 {
+  padding-top: 1.5rem;
+}
+
+.pt-5 {
+  padding-top: 3rem;
+}
+
 h1, h5 {
   font-family: 'Acta-ExtraBold';
 }
  
+.fw-700 {
+  font-weight: 700;
+}
+
 .fw-900 {
   font-weight: 900;
+}
+
+.fs-13 {
+  font-size: 13px;
 }
 
 .fs-18 {
   font-size: 18px;
 }
+
+.fs-38 {
+  font-size: 38px;
+}
+
+.input-field {
+  margin-top: 12px;
+  margin-bottom: 12px;
+ /*  padding: 15px; */
+}
+
+.fsi {
+  font-style: italic;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.d-block {
+  display: block;
+}
+
+a {
+  color:#fff;
+}
+
+.btn-login-register {
+  color: #ff651f;
+}
+
+.btn-login-register:hover {
+  color:#533869;
+}
+
+.in {
+  height: 34px !important;
+  padding: 2px;
+}
+
+.btn-link {
+  color: #0e71b8 !important;
+  background-color: transparent;
+  border-color: transparent;
+  float: left;
+}
+
+.btn-link:hover {
+  color: #533869 !important;
+  background-color: transparent;
+  border-color: transparent;
+  float: left;
+}
+
+.blue {
+  color: #0e71b8 !important;
+}
+
+
+@media(max-width: 600px){
+  .login-form {
+    max-width: 485;
+    max-height: 434.2;
+    margin: auto;
+  }
+}
+
+@media(min-width: 360px) {
+  .login-form {
+    max-width: 485;
+    max-height: 434.2;
+    margin: auto;
+  }
+}
+
+@media(max-width: 1024px) {
+  .login-form {
+    max-width: 438;
+    max-height: 686;
+    margin: auto;
+  } 
+}
+ 
