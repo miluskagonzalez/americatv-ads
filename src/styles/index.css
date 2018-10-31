@@ -1,0 +1,15 @@
+body {
+ margin: 0;
+}
+
+main {
+  background-image: url('http://www.comercial.americatv.com.pe/images/fondo1.jpg');
+  background-size: cover;
+  font-weight: bold;
+  min-height: 100vh;
+  max-width: 100%;
+  background: linear-gradient(to top, rgba(000,000,000,0.35));
+  display: flex;
+	align-items: center;
+	justify-content: center;
+}
