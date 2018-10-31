@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
   var instances = M.Modal.init(elems);
 });
 
-const ad = { // 
-  product: '',
+const ad = {
+  product: '', //marca
   priceProduct: 0,
   show: '', //name
   showPrice: 0, //fee
@@ -27,6 +27,26 @@ const ad = { //
 }
 
 const schedule = document.getElementById('schedule');
+const brands = document.getElementById('brands');
+
+//Creando elementos del DOM para mostrar las marcas
+getBrands().then(brand => {
+  const arr = brand;
+  //console.log(arr);
+  arr.forEach((e, i) => {
+    const optionBrand = document.createElement('option');
+    optionBrand.textContent = arr[i].product;
+    optionBrand.value = arr[i].product;
+    brands.appendChild(optionBrand);
+  });
+});
+
+brands.addEventListener('click', (event) => {
+  console.log(event.target.value);
+  const brand = event.target.value;
+  ad.product = brand;
+});
+
 
 schedule.addEventListener('click', (event) => {
   if (event.target.nodeName === 'I') {
@@ -49,7 +69,9 @@ schedule.addEventListener('click', (event) => {
    </nav>
 </div>
 <div class="modal-content">
-   <p>Programa: ${ad.show}</p>
+
+  <p>Marca: ${ad.product}</p>
+  <p>Programa: ${ad.show}</p>
    <p>Día: ${ad.day}</p>
    <div class='input-field'>
    <select id="select" onChange="selectInterval()" class="browser-default">
@@ -82,4 +104,4 @@ const selectInterval = () => {
       ad.recargo = 0.15 * (ad.priceProduct + ad.showPrice);
       break;
   }
-}
+};
