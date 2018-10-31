@@ -245,8 +245,8 @@ body {
   font-size: 12px;
   font-weight: 700;
 }
-
 }
+
 .fondo-home{
   background-image: url(http://www.comercial.americatv.com.pe/images/fondo2.jpg);
   background-position: center;
@@ -263,10 +263,9 @@ body {
   width: 40px;
   height: 4px;
   background-color: #fb5404;
-  display: block;
-  
-  
+  display: block;  
 }
+
 .leyenda ul li{
   display: inline-block;
 }
@@ -296,4 +295,8 @@ body {
   text-align: left;
   padding-top: 11px;
   color: #fff;
+}
+
+select {
+  margin-left: 38px;
 }
