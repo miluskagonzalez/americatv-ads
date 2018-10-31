@@ -69,14 +69,15 @@ schedule.addEventListener('click', (event) => {
    </nav>
 </div>
 <div class="modal-content">
+
   <p>Marca: ${ad.product}</p>
   <p>Programa: ${ad.show}</p>
-  <p>Día: ${ad.day}</p>
-  <div class='input-field'>
-  <select id="select" onChange="selectInterval()" class="browser-default">
-  ${ intervals.map(({ interval }) => `<option>${interval}</option>`).join('')}
-  </select>
-  </div>
+   <p>Día: ${ad.day}</p>
+   <div class='input-field'>
+   <select id="select" onChange="selectInterval()" class="browser-default">
+   ${ intervals.map(({ interval, status }) => `<option ${status === 'available' ? '' : 'disabled'}>${interval}</option>`).join('')}
+   </select>
+   </div>
 </div>
 <div class="modal-footer">
    <button class="btn waves-effect waves-light" type="submit" name="action">Agregar reserva
