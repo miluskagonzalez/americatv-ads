@@ -63,21 +63,24 @@ schedule.addEventListener('click', (event) => {
         //Creando modal
         document.getElementById('modal1').innerHTML =
           `
-<div class="navbar-fixed">
-   <nav class="orange">
-       <div class="nav-wrapper container ">
-           <h4 class="center-align modal-content">Datos de reserva</h4>
-       </div>
-   </nav>
+<div class="top-nav-modal">
+  <span class="center-align modal-content">Datos de reserva</span>
 </div>
+
 <div class="modal-content">
   <p>Marca: ${ad.product}</p>
   <p>Programa: ${ad.show}</p>
    <p>Día: ${ad.day}</p>
    <div class='input-field'>
+   <p>Precio del Producto: ${ad.priceProduct}</p>
+
    <select id="select" onChange="selectInterval()" class="browser-default">
    ${ intervals.map(({ interval, status }) => `<option ${status === 'available' ? '' : 'disabled'}>${interval}</option>`).join('')}
    </select>
+
+   <p> Precio del Programa: ${ad.showPrice}</p>
+   <p>Recargo: ${ad.recargo}</p>
+   <p>Total: ${parseInt(ad.showPrice)  + parseInt(ad.priceProduct)  + parseInt( ad.recargo)}</p>
    </div>
 </div>
 <div class="modal-footer">
@@ -91,18 +94,24 @@ schedule.addEventListener('click', (event) => {
 
 const selectInterval = () => {
   const interval = document.getElementById('select').value;
-
-  ad.interval = interval;
+ 
+  ad.interval =  interval;
+  console.log(parseFloat (interval))
 
   switch (true) {
-    case (interval >= 8 && interval < 12):
+    case ( parseFloat (interval) >= 8 && parseFloat (interval) < 12):
       ad.recargo = 0;
+      console.log(ad.recargo)
       break;
-    case (interval >= 12 && interval < 16):
-      ad.recargo = 0.05 * (ad.priceProduct + ad.showPrice);
+    case (parseFloat (interval) >= 12 && parseFloat (interval) < 16):
+      ad.recargo = 0.05 * (parseInt(ad.priceProduct) + parseInt(ad.showPrice) );
+      console.log(ad.recargo)
       break;
     default:
-      ad.recargo = 0.15 * (ad.priceProduct + ad.showPrice);
+      ad.recargo = 0.15 * (parseInt(ad.priceProduct) + parseInt(ad.showPrice) );
+      console.log(ad.recargo)
       break;
   }
 };
+
+
