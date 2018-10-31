@@ -25,6 +25,23 @@ const getBrands = () => db.collection('products').get()
     const brands = [];
     snapshot.forEach(doc => brands.push(doc.data()));
     return brands;
-  });  
+  });
 
 const getShowInfo = id => db.doc(`shows/${id}`).get().then(doc => doc.data());
+
+const updateShowInfo = (id, currentDay, currentInterval) => db.doc(`shows/${id}`).get().then(doc => doc.data())
+  .then(({schedule}) => db.doc(`shows/${id}`).update({
+    schedule: schedule.map((scheduleElem) => {
+      if (scheduleElem.day === currentDay) {
+        scheduleElem.intervals.map((intervalElem) => {
+          if (intervalElem.interval === currentInterval) {
+            intervalElem.status = 'unavailable';
+          }
+          return intervalElem;
+        })
+      }
+      return scheduleElem;
+    })
+  }))
+
+const saveReservation = reservation => db.collection('reservations').add(reservation);
