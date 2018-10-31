@@ -14,12 +14,17 @@ db.settings({ timestampsInSnapshots: true });
 
 //función registro
 const signUp = (email, password) => auth.createUserWithEmailAndPassword(email, password);
+
 // función inicio de sesión
 const signIn = (email, password) => auth.signInWithEmailAndPassword(email, password);
 
 const saveUser = (user) => db.doc(`users/${user.uid}`).set(user);
 
-const getBrands = (user) => user;
+const getBrands = () => db.collection('products').get()
+  .then(snapshot => {
+    const brands = [];
+    snapshot.forEach(doc => brands.push(doc.data()));
+    return brands;
+  });  
 
-const getShowInfo = id => db.doc(`shows/${id}`).get();
-
+const getShowInfo = id => db.doc(`shows/${id}`).get().then(doc => doc.data());

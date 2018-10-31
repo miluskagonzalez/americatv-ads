@@ -5,7 +5,7 @@ $(document).ready(function () {
 });
 
 //Funcionalidad select
-document.addEventListener('DOMContentLoaded', ()  => {
+document.addEventListener('DOMContentLoaded', () => {
   var elems = document.querySelectorAll('select');
   var instances = M.FormSelect.init(elems);
 });
@@ -16,33 +16,51 @@ document.addEventListener('DOMContentLoaded', () => {
   var instances = M.Modal.init(elems);
 });
 
-const ad = { // 
-  product: null,
+const ad = {
+  product: '', //marca
   priceProduct: 0,
-  showName: null, //name
+  show: '', //name
   showPrice: 0, //fee
-  showDay: null,
-  schedule: null,
+  day: '',
+  interval: '',
   recargo: 0 // 
 }
 
 const schedule = document.getElementById('schedule');
+const brands = document.getElementById('brands');
+
+//Creando elementos del DOM para mostrar las marcas
+getBrands().then(brand => {
+  const arr = brand;
+  //console.log(arr);
+  arr.forEach((e, i) => {
+    const optionBrand = document.createElement('option');
+    optionBrand.textContent = arr[i].product;
+    optionBrand.value = arr[i].product;
+    brands.appendChild(optionBrand);
+  });
+});
+
+brands.addEventListener('click', (event) => {
+  console.log(event.target.value);
+  const brand = event.target.value;
+  ad.product = brand;
+});
+
 
 schedule.addEventListener('click', (event) => {
   if (event.target.nodeName === 'I') {
-    getShowInfo(event.target.dataset.name).then(o => {
-      /* console.log(o.data()); */
-      const { fee, name, schedule } = o.data(); // precio, nombre del programa, día 
-      const intervals = schedule.find(({ day }) => day === event.target.dataset.date)
+    getShowInfo(event.target.dataset.name)
+      .then(({ fee, name, schedule }) => {
+        const { day, intervals } = schedule.find(({ day }) => day === event.target.dataset.date)
 
-      ad.showName = name;
-      ad.showDay = intervals.day;
-      ad.schedule = intervals.intervals;
-      ad.showPrice = fee;
+        ad.show = name;
+        ad.showPrice = fee
+        ad.day = day
 
-      //Creando modal
-      document.getElementById('modal1').innerHTML = 
-      `
+        //Creando modal
+        document.getElementById('modal1').innerHTML =
+          `
 <div class="navbar-fixed">
    <nav class="orange">
        <div class="nav-wrapper container ">
@@ -50,21 +68,40 @@ schedule.addEventListener('click', (event) => {
        </div>
    </nav>
 </div>
-
-
 <div class="modal-content">
-   <p>Programa: ${ad.showName}</p>
-   <p>Fecha: ${ad.showDay}</p>
-<select>Hora: ${ad.schedule.reduce((interval) =>  `<option>${interval}</option>`, '')}</select>
-</div>
 
+  <p>Marca: ${ad.product}</p>
+  <p>Programa: ${ad.show}</p>
+   <p>Día: ${ad.day}</p>
+   <div class='input-field'>
+   <select id="select" onChange="selectInterval()" class="browser-default">
+   ${ intervals.map(({ interval, status }) => `<option ${status === 'available' ? '' : 'disabled'}>${interval}</option>`).join('')}
+   </select>
+   </div>
+</div>
 <div class="modal-footer">
    <button class="btn waves-effect waves-light" type="submit" name="action">Agregar reserva
        <i class="material-icons right">send</i>
    </button>
 </div>`
-    })
-    /* console.log(event.target.dataset.date); */
-
+      })
   }
 });
+
+const selectInterval = () => {
+  const interval = document.getElementById('select').value;
+
+  ad.interval = interval;
+
+  switch (true) {
+    case (interval >= 8 && interval < 12):
+      ad.recargo = 0;
+      break;
+    case (interval >= 12 && interval < 16):
+      ad.recargo = 0.05 * (ad.priceProduct + ad.showPrice);
+      break;
+    default:
+      ad.recargo = 0.15 * (ad.priceProduct + ad.showPrice);
+      break;
+  }
+};
